@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BankApplication
+namespace BankApplication.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for WithdrawView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WithdrawView : UserControl
     {
-        public MainWindow()
+        public WithdrawView()
         {
             InitializeComponent();
-        }
-
-        private void ExitBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }

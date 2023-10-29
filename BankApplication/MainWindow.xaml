@@ -4,12 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankApplication"
+        xmlns:viewModel="clr-namespace:BankApplication.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
     <Border Background="#272537" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -25,25 +32,63 @@
                        HorizontalAlignment="Left"
                        Foreground="White"
                        FontSize="18"
-                       Margin="20,0,0,0"/>
-            
-            <StackPanel Grid.Row="1">
-                <RadioButton Content="Balance"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="Deposit"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="Withdraw"
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
-            </StackPanel>
+                       Margin="20,0,0,0"
+                       FontFamily="/Fonts/Bold/#Poppins"/>
+
+            <Border Grid.Row="1"
+                    CornerRadius="0,0,0,20">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,5">
+                        <GradientStop Color="Transparent" Offset="0.0"/>
+                        <GradientStop Color="#3aa0ff" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel>
+                    <RadioButton Content="Balance"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 FontFamily="/Fonts/Bold/#Poppins"
+                                 IsChecked="True"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding BalanceViewCommand}"/>
+                    <RadioButton Content="Deposit"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 FontFamily="/Fonts/Bold/#Poppins"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding DepositViewCommand}"/>
+                    <RadioButton Content="Withdraw"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 FontFamily="/Fonts/Bold/#Poppins"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding WithdrawViewCommand}"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1"
+                    Grid.Column="1"
+                    CornerRadius="0,0,20,0">
+                <ContentControl
+                    Margin="10"
+                    Content="{Binding CurrentView}"/>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0"  EndPoint="1,2">
+                        <GradientStop Color="Transparent" Offset="0.0"/>
+                        <GradientStop Color="Transparent" Offset="0.3"/>
+                        <GradientStop Color="Fuchsia"  Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <Button x:Name="ExitBtn" Grid.Column="1"
+                    Content="X"
+                    FontSize="15"
+                    FontFamily="/Fonts/Bold/#Poppins"
+                    Style="{StaticResource CancelButtonTheme}" Margin="0,0,20,0" Click="ExitBtn_Click"/>
         </Grid>
     </Border>
 </Window>

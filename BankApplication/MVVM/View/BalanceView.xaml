@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="BankApplication.MVVM.View.BalanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BankApplication.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <TextBlock Text="Balance"
+                   Foreground="White"
+                   FontSize="28"
+                   FontFamily="/Fonts/Bold/#Poppins"
+                   Margin="0,0,0,20"/>
+        <Grid Margin="150,0,150,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="$"
+                   Foreground="ForestGreen"
+                   FontSize="25"                   
+                   FontFamily="/Fonts/Bold/#Poppins"
+                   Grid.Column="0"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"/>
+            <TextBox IsReadOnly="True"
+                     Grid.Column="1"
+                     Text="0.00"
+                     FontSize="25" 
+                     FontFamily="/Fonts/Bold/#Poppins"
+                     Style="{StaticResource MoneyTextBox}"/>
+        </Grid>
+        <TextBlock Text="Annual Percentage Yield"
+           Foreground="White"
+           FontSize="28"
+           FontFamily="/Fonts/Bold/#Poppins"
+           Margin="0,0,0,20"/>
+        <Grid Margin="150,0,150,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="32"/>
+                <ColumnDefinition Width="32"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="%" Foreground="ForestGreen"
+                   FontSize="25"
+                   FontFamily="/Fonts/Bold/#Poppins"
+                   Grid.Column="0"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"/>
+            <TextBox x:Name="Percentage_TextBox" IsReadOnly="True"
+                     Grid.Column="1"
+                     Text="3"
+                     FontSize="25" 
+                     FontFamily="/Fonts/Bold/#Poppins"
+                     Style="{StaticResource MoneyTextBox}"/>
+            <Label Content="$" Foreground="ForestGreen"
+                   FontSize="25"
+                   FontFamily="/Fonts/Bold/#Poppins"
+                   Grid.Column="3"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Center"/>
+            <TextBox x:Name="APY_TextBox" IsReadOnly="True"
+                     Grid.Column="4"
+                     Text="0.00"
+                     FontSize="25" 
+                     FontFamily="/Fonts/Bold/#Poppins"
+                     Style="{StaticResource MoneyTextBox}"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

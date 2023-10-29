@@ -8,11 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
+    <None Remove="Fonts\Poppins-Bold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\Regular\" />
     <Folder Include="Images\" />
     <Folder Include="MVVM\Model\" />
-    <Folder Include="MVVM\ViewModel\" />
-    <Folder Include="MVVM\View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Bold\Poppins-Bold.ttf" />
   </ItemGroup>
 
 </Project>
