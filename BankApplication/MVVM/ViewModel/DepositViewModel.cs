@@ -2,10 +2,17 @@
 
 namespace BankApplication.MVVM.ViewModel;
 
-class DepositViewModel : ObserveableObject
+public class DepositViewModel : ObserveableObject
 {
-    public DepositViewModel()
-    {
-        
-    }
+	private double? amount;
+
+	public double? Amount
+	{
+		get { return amount; }
+		set 
+		{
+			amount = value;
+			OnPropertyChanged();
+		}
+	}
 }

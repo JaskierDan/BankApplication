@@ -2,7 +2,7 @@
 
 namespace BankApplication.MVVM.ViewModel;
 
-class MainViewModel : ObserveableObject
+public class MainViewModel : ObserveableObject
 {
     public RelayCommand BalanceViewCommand { get; set; }
     public RelayCommand DepositViewCommand { get; set; }
@@ -12,11 +12,11 @@ class MainViewModel : ObserveableObject
     public DepositViewModel DepositVM { get; set; }
     public WithdrawViewModel WithdrawVM { get; set; }
 
-    private object _currentView;
+    private object? _currentView;
 
 	public object CurrentView
     {
-        get => _currentView;
+        get => _currentView ?? BalanceVM;
         set
         {
             _currentView = value;

@@ -2,10 +2,17 @@
 
 namespace BankApplication.MVVM.ViewModel;
 
-class WithdrawViewModel : ObserveableObject
+public class WithdrawViewModel : ObserveableObject
 {
-    public WithdrawViewModel()
-    {
-        
-    }
+	private double? amount;
+
+	public double? Amount
+	{
+		get { return amount; }
+		set 
+		{ 
+			amount = value;
+            OnPropertyChanged();
+        }
+	}
 }

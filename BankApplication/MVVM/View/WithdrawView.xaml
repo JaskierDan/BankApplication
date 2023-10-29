@@ -4,8 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BankApplication.MVVM.View"
+             xmlns:viewModel="clr-namespace:BankApplication.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewModel:WithdrawViewModel/>
+    </UserControl.DataContext>
+    
     <StackPanel>
         <TextBlock Text="Withdraw"
            Foreground="White"
@@ -24,20 +29,21 @@
                    Grid.Column="0"
                    HorizontalContentAlignment="Center"
                    VerticalContentAlignment="Center"/>
-            <TextBox Grid.Column="1"
+            <TextBox x:Name="MoneyTextInput" Grid.Column="1"
                      FontSize="25" 
                      FontFamily="/Fonts/Bold/#Poppins"
-                     Style="{StaticResource MoneyTextBox}"/>
+                     Style="{StaticResource MoneyTextBox}"
+                     Text="{Binding Amount}"/>
         </Grid>
         <Grid Margin="150,0,150,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button
+            <Button x:Name="WithdrawButton"
                 Content="Withdraw"
                 FontSize="15"
                 FontFamily="/Fonts/Bold/#Poppins"
-                Style="{StaticResource ButtonTheme}"/>
+                Style="{StaticResource ButtonTheme}" Click="WithdrawButton_Click"/>
         </Grid>
     </StackPanel>
 </UserControl>

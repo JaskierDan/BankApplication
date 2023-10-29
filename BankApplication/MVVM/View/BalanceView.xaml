@@ -4,8 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BankApplication.MVVM.View"
+             xmlns:viewModel="clr-namespace:BankApplication.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewModel:BalanceViewModel/>
+    </UserControl.DataContext>
     <StackPanel>
         <TextBlock Text="Balance"
                    Foreground="White"
@@ -26,7 +30,7 @@
                    VerticalContentAlignment="Center"/>
             <TextBox IsReadOnly="True"
                      Grid.Column="1"
-                     Text="0.00"
+                     Text="{Binding Balance}"
                      FontSize="25" 
                      FontFamily="/Fonts/Bold/#Poppins"
                      Style="{StaticResource MoneyTextBox}"/>
@@ -52,7 +56,7 @@
                    VerticalContentAlignment="Center"/>
             <TextBox x:Name="Percentage_TextBox" IsReadOnly="True"
                      Grid.Column="1"
-                     Text="3"
+                     Text="{Binding Percentage}"
                      FontSize="25" 
                      FontFamily="/Fonts/Bold/#Poppins"
                      Style="{StaticResource MoneyTextBox}"/>
@@ -64,7 +68,7 @@
                    VerticalContentAlignment="Center"/>
             <TextBox x:Name="APY_TextBox" IsReadOnly="True"
                      Grid.Column="4"
-                     Text="0.00"
+                     Text="{Binding APY}"
                      FontSize="25" 
                      FontFamily="/Fonts/Bold/#Poppins"
                      Style="{StaticResource MoneyTextBox}"/>

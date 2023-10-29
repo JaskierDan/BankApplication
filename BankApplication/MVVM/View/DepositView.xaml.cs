@@ -1,28 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BankApplication.Core;
+using BankApplication.MVVM.ViewModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace BankApplication.MVVM.View
+namespace BankApplication.MVVM.View;
+
+/// <summary>
+/// Interaction logic for DepositView.xaml
+/// </summary>
+public partial class DepositView : UserControl
 {
-    /// <summary>
-    /// Interaction logic for DepositView.xaml
-    /// </summary>
-    public partial class DepositView : UserControl
+    public DepositView()
     {
-        public DepositView()
+        InitializeComponent();
+    }
+
+    private void DepositBtn_Click(object sender, RoutedEventArgs e)
+    {        
+        if (DataContext is DepositViewModel model)
         {
-            InitializeComponent();
+            BalanceManager.Deposit(model.Amount);
+            MoneyTextInput.Text = "";
         }
+    }
+
+    private void MoneyTextInput_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+    {
+        e.Handled = !Regex.IsMatch(e.Text, @"[\d]*\.?[\d]{1,2}");
     }
 }
