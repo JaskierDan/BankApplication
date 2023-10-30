@@ -47,3 +47,4 @@ jobs:
           upload_url: ${{ env.UPLOAD_URL }}
           asset_name: drop.zip
           asset_path: D:\a\BankApplication\BankApplication\BankApplication\bin\Release\net6.0-windows\
+          asset_content_type: application/zip
