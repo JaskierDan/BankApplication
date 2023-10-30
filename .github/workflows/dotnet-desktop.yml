@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: drop
-          path: D:\a\BankApplication\BankApplication\BankApplication\bin\Release\net6.0-windows\
+          path: /artifacts/
 
       - run:   |
          upload_url=$(curl -sL https://api.github.com/repos/actions/checkout/releases/latest | jq -r '.upload_url')
@@ -46,5 +46,5 @@ jobs:
         with:
           upload_url: ${{ env.UPLOAD_URL }}
           asset_name: drop.zip
-          asset_path: D:\a\BankApplication\BankApplication\BankApplication\bin\Release\net6.0-windows\
+          asset_path: /artifacts/
           asset_content_type: application/zip
