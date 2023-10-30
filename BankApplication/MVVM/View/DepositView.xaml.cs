@@ -27,6 +27,15 @@ public partial class DepositView : UserControl
 
     private void MoneyTextInput_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
     {
-        e.Handled = !Regex.IsMatch(e.Text, @"[\d]*\.?[\d]{1,2}");
+        bool approvedDecimalPoint = false;
+
+        if (e.Text == ".")
+        {
+            if (!((TextBox)sender).Text.Contains("."))
+                approvedDecimalPoint = true;
+        }
+
+        if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+            e.Handled = true;
     }
 }

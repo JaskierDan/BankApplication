@@ -33,7 +33,7 @@
                      FontSize="25" 
                      FontFamily="/Fonts/Bold/#Poppins"
                      Style="{StaticResource MoneyTextBox}"
-                     Text="{Binding Amount}"/>
+                     Text="{Binding Amount}" PreviewTextInput="MoneyTextInput_PreviewTextInput"/>
         </Grid>
         <Grid Margin="150,0,150,20">
             <Grid.ColumnDefinitions>

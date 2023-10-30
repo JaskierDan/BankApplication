@@ -24,4 +24,18 @@ public partial class WithdrawView : UserControl
             MoneyTextInput.Text = "";
         }
     }
+
+    private void MoneyTextInput_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+    {
+        bool approvedDecimalPoint = false;
+
+        if (e.Text == ".")
+        {
+            if (!((TextBox)sender).Text.Contains("."))
+                approvedDecimalPoint = true;
+        }
+
+        if (!(char.IsDigit(e.Text, e.Text.Length - 1) || approvedDecimalPoint))
+            e.Handled = true;
+    }
 }
